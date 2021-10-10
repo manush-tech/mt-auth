@@ -148,7 +148,7 @@ class Auth {
     const expiryTime = Math.floor(Date.now() / 1000) + 3 * 60;
     this.redis.set(verifyId, verifyToken);
     this.redis.expireat(verifyId, expiryTime);
-    return privateKey;
+    return {privateKey, verifyId, otpCode};
   }
 }
 
